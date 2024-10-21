@@ -15,7 +15,7 @@ Full Problem Statement: [PROBLEM.md](PROBLEM.md)
 3. For each row: 
     - A script is generated using the base template file and customer data.
     - A script id is assigned (UUID V4) and the script is saved in the `scripts` directory.
-4. A job is scheduled using `APScheduler` to run at the specified time. The job is passed the script id, customer name, company and any additional kwargs. Currently for demonstration purposes, the job is scheduled to run 5 seconds but this can be easily changed to any time.
+4. A job is scheduled using `APScheduler` to run at the specified time. The job is passed the script id, customer name, company and any additional kwargs. Currently for demonstration purposes, the job is scheduled to run every 10 seconds but this can be easily changed to any time.
 5. When the job runs, it makes a call to a dummy API endpoint with the script id, customer name, company and kwargs. The dummy API endpoint simulates an API call by waiting for 5 seconds.
 
 ### Running Local
