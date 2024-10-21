@@ -1,2 +1,2 @@
-APScheduler~=3.10.4x
+APScheduler~=3.10.4
 aiofiles~=24.1.0
