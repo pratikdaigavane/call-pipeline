@@ -14,6 +14,7 @@ Full Problem Statement: [PROBLEM.md](PROBLEM.md)
 2. We then iterate over the rows in the CSV file and create a job for each row. This is done concurrently using `asyncio`. In `CustomerData.iterate_csv` method, `aiofiles` package reads the CSV file asynchronously line by line and yields the row. This is means that the file is not read into memory all at once and as soon as a row is read, it is processed (scheduled job created in this case).
 3. For each row: 
     - A script is generated using the base template file and customer data.
+    - For generating the script from the template, we use `string.format` method. If the template is more complex, we can use `langchain` or other templating engines.
     - A script id is assigned (UUID V4) and the script is saved in the `scripts` directory.
 4. A job is scheduled using `APScheduler` to run at the specified time. The job is passed the script id, customer name, company and any additional kwargs. Currently for demonstration purposes, the job is scheduled to run every 10 seconds but this can be easily changed to any time.
 5. When the job runs, it makes a call to a dummy API endpoint with the script id, customer name, company and kwargs. The dummy API endpoint simulates an API call by waiting for 5 seconds.
